@@ -27,13 +27,15 @@ class Scraper
     html = open(profile_url)
     doc = Nokogiri::HTML(html)
     attributes = {}
-    twitter_url = doc.css(".social-icon-container a").detect {|a| a.css("img")[0]["src"] == "../assets/img/twitter-icon.png"}["href"]
+    twitter_url = doc.css(".social-icon-container a").detect {|a| a.css("img")[0]["src"] == "../assets/img/twitter-icon.png"}
     linkedin_url = doc.css(".social-icon-container a").detect {|a| a.css("img")[0]["src"] == "../assets/img/linkedin-icon.png"}[0]["href"]
     github_url = doc.css(".social-icon-container a").detect {|a| a.css("img")[0]["src"] == "../assets/img/github-icon.png"}[0]["href"]
     blog_url = doc.css(".social-icon-container a").detect {|a| a.css("img")[0]["src"] == "../assets/img/rss-icon.png"}[0]["href"]
     profile_quote = doc.css(".profile-quote").text
     bio = doc.css(".bio-content.content-holder .description-holder p").text
 
+    if !twitter_url.nil?
+      attributes[:twitter] = twitter_url["href"]
     attributes = {
       :twitter => twitter_url,
       :linkedin => linkedin_url,
