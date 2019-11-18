@@ -31,8 +31,8 @@ class Scraper
     linkedin_url = doc.css(".social-icon-container a").detect {|a| a.css("img")[0]["src"] == "../assets/img/linkedin-icon.png"}
     github_url = doc.css(".social-icon-container a").detect {|a| a.css("img")[0]["src"] == "../assets/img/github-icon.png"}
     blog_url = doc.css(".social-icon-container a").detect {|a| a.css("img")[0]["src"] == "../assets/img/rss-icon.png"}
-    profile_quote = doc.css(".profile-quote").text
-    bio = doc.css(".bio-content.content-holder .description-holder p").text
+    profile_quote = doc.css(".profile-quote")
+    bio = doc.css(".bio-content.content-holder .description-holder p")
 
     if !twitter_url.nil?
       attributes[:twitter] = twitter_url["href"]
@@ -40,27 +40,27 @@ class Scraper
     if !linkedin_url.nil?
       attributes[:linkedin] = linkedin_url["href"]
     end
-    if !twitter_url.nil?
-      attributes[:twitter] = twitter_url["href"]
+    if !github_url.nil?
+      attributes[:github] = github_url["href"]
     end
-    if !twitter_url.nil?
-      attributes[:twitter] = twitter_url["href"]
+    if !blog_url.nil?
+      attributes[:blog] = blog_url["href"]
     end
-    if !twitter_url.nil?
-      attributes[:twitter] = twitter_url["href"]
+    if !profile_quote.nil?
+      attributes[:profile_quote] = profile_quote.text
     end
-    if !twitter_url.nil?
-      attributes[:twitter] = twitter_url["href"]
+    if !bio.nil?
+      attributes[:bio] = bio.text
     end
 
-    attributes = {
-      :twitter => twitter_url,
-      :linkedin => linkedin_url,
-      :github => github_url,
-      :blog => blog_url,
-      :profile_quote => profile_quote,
-      :bio => bio
-    }
+    # attributes = {
+    #   :twitter => twitter_url,
+    #   :linkedin => linkedin_url,
+    #   :github => github_url,
+    #   :blog => blog_url,
+    #   :profile_quote => profile_quote,
+    #   :bio => bio
+    # }
   end
 
 end
