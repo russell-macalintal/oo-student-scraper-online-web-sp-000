@@ -53,6 +53,7 @@ class Scraper
       attributes[:bio] = bio.text
     end
 
+    attributes
     # attributes = {
     #   :twitter => twitter_url,
     #   :linkedin => linkedin_url,
