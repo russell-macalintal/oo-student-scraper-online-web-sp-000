@@ -52,7 +52,7 @@ class Scraper
     if !twitter_url.nil?
       attributes[:twitter] = twitter_url["href"]
     end
-    
+
     attributes = {
       :twitter => twitter_url,
       :linkedin => linkedin_url,
