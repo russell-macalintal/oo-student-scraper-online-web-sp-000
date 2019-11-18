@@ -33,7 +33,7 @@ class Scraper
     blog_url = doc.css(".social-icon-container a").detect {|a| a.css("img")[0]["src"] == "../assets/img/rss-icon.png"}[0]["href"]
     profile_quote = doc.css(".profile-quote").text
     bio = doc.css(".bio-content.content-holder .description-holder p").text
-  
+
     attributes = {
       :twitter => twitter_url,
       :linkedin => linkedin_url,
