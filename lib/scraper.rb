@@ -54,14 +54,6 @@ class Scraper
     end
 
     attributes
-    # attributes = {
-    #   :twitter => twitter_url,
-    #   :linkedin => linkedin_url,
-    #   :github => github_url,
-    #   :blog => blog_url,
-    #   :profile_quote => profile_quote,
-    #   :bio => bio
-    # }
   end
 
 end
